@@ -1,0 +1,61 @@
+@()(implicit loggedUser: Option[User], messages: Messages)
+
+
+@servicesString(user: User) = @{ user.services match {
+	case Nil => "none"
+	case head :: Nil => head
+	case init :+ last => init.mkString(", ") + " " + Messages("and") + " " + last
+}}
+
+@views.html.templates.default(title = "Home", loggedUser, tab = "index") {
+
+
+	<!--Video Section-->
+	<div class="fullscreen-bg">
+		<video loop muted autoplay poster="@routes.MyAssets.img("bg_still.jpg")") class="fullscreen-bg__video">
+			<source src="@routes.MyAssets.vid("bg_vid_2500.webm")" type="video/webm">
+		</video>
+	</div>
+	<div class="container_video_overlay">
+		<div class="row">
+			<div class="col-lg-12">
+				<hr class="prettyline">
+				<br>
+				<h1><b>Luas Notifyr</b></h1>
+				<h3>You must be registered to use this service</h3>
+				<br>
+				<a href="@routes.Auth.signIn" ><button type="button" class="btn btn-primary btn-lg">Login</button></a>
+				<a href="@routes.Auth.startSignUp" ><button type="button" class="btn btn-primary btn-lg">Register</button></a>
+				<br>
+				<hr class="line">
+			</div>
+		</div>
+	</div>
+
+		<!--Video Section Ends Here-->
+
+
+	<div class="row">
+		<div class="container_marketing">
+				<!-- Three columns of text below the carousel -->
+			<div class="col-md-4 text-center">
+				<img src="@routes.MyAssets.img("email-icon.png")">
+				<h2>SMS/Email Support</h2>
+				<p>Get notified no matter where you are. We support both sms & emails as notification routes</p>
+			</div>
+			<div class="col-md-4 text-center">
+				<img src="@routes.MyAssets.img("clock-icon.png")">
+				<h2>Fast Signup</h2>
+				<p>Signup only takes 1 minute, so why not try it for yourself.</p>
+			</div>
+			<div class="col-md-4 text-center">
+				<img src="@routes.MyAssets.img("tick-icon.png")">
+				<h2>Reliable</h2>
+				<p>We pride ourselves in keeping the service uptime above 99% percent!</p>
+			</div>
+		</div><!-- /.row -->
+	</div>
+
+
+}
+	

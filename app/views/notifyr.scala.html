@@ -1,0 +1,11 @@
+@()(implicit user: User, messages: Messages)
+
+@import controllers.routes
+
+@views.html.templates.logged(title = "Notifyr", tab = "Notifyr") {
+	
+	<h1 class="text-primary">Notifyr</h1>
+	
+	<h3>This is the Service A Area. Only users with <strong>'serviceA'</strong> service can be here.</h3>
+
+}
