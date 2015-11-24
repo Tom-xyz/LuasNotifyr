@@ -38,7 +38,7 @@ object LuasRTPI {
     val destination = (json_response \\ "destination").map(_.as[String])
     val due_minutes = ((json_response \\ "dueMinutes")).map(_.as[String])
 
-    (destination zip due_minutes).toMap
+    (destination zip due_minutes).toMap.slice(0,1)
   }
 
 }
