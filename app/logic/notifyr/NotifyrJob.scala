@@ -19,7 +19,7 @@ object Global extends GlobalSettings {
   def alarmCheck(app: Application): Unit = {
     val luasJobActor = Akka.system(app).actorOf(Props(new LuasJobActor()))
     println("Scheduling job for every 3 minutes")
-    Akka.system(app).scheduler.schedule(0 seconds, 3 minutes, luasJobActor, "startAlarmCheck")
+    Akka.system(app).scheduler.schedule(0 seconds, 4 minutes, luasJobActor, "startAlarmCheck")
   }
 
 }
