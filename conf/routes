@@ -3,19 +3,20 @@
 # ~~~~
 
 # Authentication pages
-GET		/signup									controllers.Auth.startSignUp
-POST	/signup									controllers.Auth.handleStartSignUp
-GET		/signup/:token					controllers.Auth.signUp(token: String)
-GET		/signin									controllers.Auth.signIn
-POST	/authenticate						controllers.Auth.authenticate
-GET		/signout								controllers.Auth.signOut
-GET		/reset-password					controllers.Auth.forgotPassword
-POST	/reset-password					controllers.Auth.handleForgotPassword
-GET		/reset-password/:token	controllers.Auth.resetPassword(token: String)
-POST	/reset-password/:token	controllers.Auth.handleResetPassword(token: String)
-GET		/change-password				controllers.Auth.changePassword
-POST	/change-password				controllers.Auth.handleChangePassword
-GET		/denied									controllers.Auth.accessDenied
+GET         /signup                       controllers.Auth.startSignUp
+POST        /signup                       controllers.Auth.handleStartSignUp
+GET         /signup/:token                controllers.Auth.signUp(token: String)
+GET         /signin                       controllers.Auth.signIn
+POST        /authenticate                 controllers.Auth.authenticate
+GET         /authenticate                 controllers.Auth.authenticate
+GET         /signout                      controllers.Auth.signOut
+GET         /reset-password               controllers.Auth.forgotPassword
+POST        /reset-password               controllers.Auth.handleForgotPassword
+GET         /reset-password/:token        controllers.Auth.resetPassword(token: String)
+POST        /reset-password/:token        controllers.Auth.handleResetPassword(token: String)
+GET         /change-password              controllers.Auth.changePassword
+POST        /change-password              controllers.Auth.handleChangePassword
+GET         /denied                       controllers.Auth.accessDenied
 
 
 # Home page
