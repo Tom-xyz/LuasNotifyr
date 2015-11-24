@@ -1,6 +1,8 @@
 package controllers
 
+import logic.notifyr.LuasRTPI
 import models._
+import play.api.data.Form
 import utils.silhouette._
 import play.api._
 import play.api.mvc._
@@ -20,11 +22,6 @@ class Application @Inject() (val env: AuthenticationEnvironment, val messagesApi
 
   def myAccount = SecuredAction.async { implicit request =>
     Future.successful(Ok(views.html.myAccount()))
-  }
-
-  // REQUIRED ROLES: serviceA (or master)
-  def notifyr = SecuredAction(WithService("Notifyr")).async { implicit request =>
-    Future.successful(Ok(views.html.notifyr()))
   }
 
 }

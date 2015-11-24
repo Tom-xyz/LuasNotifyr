@@ -34,5 +34,11 @@ libraryDependencies ++= Seq(
   "org.webjars" % "requirejs" % "2.1.19",
   "com.mohiva" %% "play-silhouette" % "3.0.0",
   "com.adrianhurt" %% "play-bootstrap3" % "0.4.4-P24",	// Add bootstrap3 helpers and field constructors (http://play-bootstrap3.herokuapp.com/)
-  "com.typesafe.play" %% "play-mailer" % "3.0.1"
+  "com.typesafe.play" %% "play-mailer" % "3.0.1",
+  "net.databinder.dispatch" %% "dispatch-core" % "0.11.2",
+  "com.typesafe.akka" %% "akka-actor" % "2.4-SNAPSHOT",
+  "com.typesafe.akka" %% "akka-slf4j"    % "2.4-SNAPSHOT",
+  "com.typesafe.akka" %% "akka-remote"   % "2.4-SNAPSHOT",
+  "com.typesafe.akka" %% "akka-agent"    % "2.4-SNAPSHOT",
+  "com.typesafe.akka" %% "akka-testkit"  % "2.4-SNAPSHOT"
 )

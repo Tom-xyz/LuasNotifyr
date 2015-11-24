@@ -8,7 +8,7 @@
 		<ul class="nav navbar-nav">
 			@loggedUser.map { implicit user =>
 				@withService("Notifyr") {
-					<li class="@("active".when(tab == "Notifyr"))"><a href="@routes.Application.notifyr">Notifyr</a></li>
+					<li class="@("active".when(tab == "Notifyr"))"><a href="@routes.Notifyr.notifyr">Notifyr</a></li>
 				}
 				<li class="@("active".when(tab == "myaccount"))"><a href="@routes.Application.myAccount">@Messages("topbar.myaccount")</a></li>
 			}

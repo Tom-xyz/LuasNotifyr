@@ -20,9 +20,11 @@ GET		/denied									controllers.Auth.accessDenied
 
 # Home page
 GET		/												controllers.Application.index
-GET		/notifyr								controllers.Application.notifyr
+GET		/notifyr								controllers.Notifyr.notifyr
 GET		/myaccount							controllers.Application.myAccount
 
+# Notifyr Luas
+POST /notifyr                controllers.Notifyr.submit
 
 
 

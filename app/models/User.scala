@@ -13,6 +13,7 @@ case class User(
     nick: String,
     firstName: String,
     lastName: String,
+    mobile: String,
 
 		services: List[String]) extends IdentitySilhouette {
   def key = email
@@ -24,8 +25,8 @@ object User {
 	val services = Seq("Notifyr")
 
   val users = scala.collection.mutable.HashMap[Long, User](
-    1L -> User(Some(1L), "demo@email.com", true, (new BCryptPasswordHasher()).hash("1234").password, "DemoAcc", "Demo", "Edgy", List("Notifyr")),
-    2L -> User(Some(2L), "tom@email.com", true, (new BCryptPasswordHasher()).hash("1234").password, "Tom", "Thomas", "Boyle", List("Notifyr"))
+    1L -> User(Some(1L), "demo@email.com", true, (new BCryptPasswordHasher()).hash("1234").password, "DemoAcc", "Demo", "Edgy", "+353851827311", List("Notifyr")),
+    2L -> User(Some(2L), "tom@email.com", true, (new BCryptPasswordHasher()).hash("1234").password, "Tom", "Thomas", "Boyle", "+353851827311", List("Notifyr"))
   )
 
   def findByEmail(email: String): Future[Option[User]] = Future.successful(users.find(_._2.email == email).map(_._2))

@@ -1,11 +1,92 @@
-@()(implicit user: User, messages: Messages)
+@(luasForm: Form[LuasAlarm])(implicit user: User, messages: Messages)
 
 @import controllers.routes
+@import logic.notifyr.LuasRTPI
+@import helper._
 
 @views.html.templates.logged(title = "Notifyr", tab = "Notifyr") {
-	
-	<h1 class="text-primary">Notifyr</h1>
-	
-	<h3>This is the Service A Area. Only users with <strong>'serviceA'</strong> service can be here.</h3>
+
+    <h1 class="text-primary">Notifyr</h1>
+    <hr>
+
+
+    <div class="row">
+
+    @helper.form(action = routes.Notifyr.submit(), 'class -> "luas-add-form") {
+        <div class="row">
+            <input type="hidden" name="user_id" value="@user.id" />
+
+            @inputText(luasForm("Alarm Name"))
+
+            @inputText(luasForm("Time"))
+
+            @select(
+                luasForm("Station"),
+                options(LuasRTPI.LUAS_STATION_MAP),
+                '_label -> "Luas Station", '_default -> "Select Station"
+            )
+
+            @select(
+                luasForm("Direction"),
+                options(LuasRTPI.LUAS_DIRECTION),
+                '_label -> "Direction", '_default -> "Select Direction"
+            )
+        </div>
+
+
+
+        <select name="days[]" multiple>
+            <option name="Monday" value="Monday" selected="selected">Monday</option>
+            <option name="Tuesday" value="Tuesday">Tuesday</option>
+            <option name="Wednesday" value="Wednesday">Wednesday</option>
+            <option name="Thursday" value="Thursday">Thursday</option>
+            <option name="Friday" value="Friday">Friday</option>
+            <option name="Saturday" value="Saturday">Saturday</option>
+            <option name="Sunday" value="Sunday">Sunday</option>
+        </select>
+
+        <input type="submit" class="btn btn-primary" value="Create Alarm">
+
+        }
+
+
+    </div>
+    <hr>
+
+    <h3 class="text-primary">Your Alarms</h3>
+
+    @defining(LuasRTPI.LUAS_ALARMS.get(user.id.get)) { luasAlarms =>
+        @if(luasAlarms.isDefined) {
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Alarm Name</th>
+                        <th>Time</th>
+                        <th>Station</th>
+                        <th>Direction</th>
+                        <th>Days</th>
+                        <th>Action</th>
+                    </tr>
+                    @for( alarm <- luasAlarms.get) {
+                        <tr>
+                            <td>@alarm.alarm_name</td>
+                            <td>@alarm.alarmTime</td>
+                            <td>@LuasRTPI.LUAS_STATION_MAP.get(alarm.station_short_name)</td>
+                            <td>@alarm.direction</td>
+                            <td>
+                            @for(day <- alarm.dayList){
+                                @day
+                            }
+                            </td>
+                            <td><button class="btn btn-danger" type="submit">Delete</button></td>
+                        </tr>
+                    }
+            </table>
+        } else {
+            <h4>You have no alarms, create some!</h4>
+        }
+
+    }
+
 
 }

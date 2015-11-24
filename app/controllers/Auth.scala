@@ -41,6 +41,7 @@ class Auth @Inject() (val env: AuthenticationEnvironment, val messagesApi: Messa
       "nick" -> nonEmptyText,
       "firstName" -> nonEmptyText,
       "lastName" -> nonEmptyText,
+      "mobile" -> nonEmptyText,
       "services" -> list(nonEmptyText)
     )(User.apply)(User.unapply)
   )

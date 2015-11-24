@@ -8,6 +8,7 @@
 			<legend>@Messages("signup.title")</legend>
 			@b3.text(signUpForm("firstName"), '_label -> Messages("field.firstname"), 'placeholder -> "John", 'autofocus -> true )
 			@b3.text(signUpForm("lastName"), '_label -> Messages("field.lastname"), 'placeholder -> "Doe" )
+			@b3.text(signUpForm("mobile"), '_label -> Messages("field.mobile"))
 			@b3.text(signUpForm("nick"), '_label -> Messages("field.nick"), 'placeholder -> "Johny" )
 			@b3.text(signUpForm("email"), '_label -> Messages("field.email"), 'placeholder -> "your@email.com" )
 			@b3.password(signUpForm("password"), '_label -> Messages("field.password"), 'placeholder -> Messages("field.password") )

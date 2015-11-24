@@ -6,6 +6,7 @@ field.firstname=First name
 field.lastname=Last name
 field.nick=Nick
 field.email=Email
+field.mobile=Mobile Number
 field.password=Password
 field.password.repeat=Repeat password
 field.services=Services
@@ -60,6 +61,7 @@ signup.signin=Sign in now
 signup.thanks=Thank you {0} for sign up!
 signup.sent=We''ve just send you an email to {0}. Please follow its instructions to complete your new account.
 signup.ready=You have now your account available
+
 
 signin=Sign in
 signin.title=Sign in with your credentials
