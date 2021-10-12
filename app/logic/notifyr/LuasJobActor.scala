@@ -15,7 +15,7 @@ object LuasJobActor {
 class LuasJobActor extends Actor {
 
   val SMS_REST_ENDPOINT = "http://api.txtlocal.com/send/?"
-  val SMS_API_KEY = "M6++DC2ovOM-ISG06Ls8mDNasH3XKGnCNA3muwDFbt"
+  val SMS_API_KEY = "X"
   val FIVE_MILLI_MINUTE = 60000L
   val asyncHttpClient = new AsyncHttpClient()
 
